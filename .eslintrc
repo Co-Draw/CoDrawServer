@@ -1,53 +1,15 @@
 {
-  "env": {
-    "es6": true,
-    "node": true
-  },
-  "extends": [
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": ["prettier"],
   "parserOptions": {
-    "project": "./tsconfig.json",
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "ignorePatterns": [
-    "src/**/*.js",
-    "src/**/*.jsx",
-    "scripts"
-  ],
   "rules": {
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-underscore-dangle": 0,
-    "arrow-body-style": 0,
-    "no-param-reassign": 0,
-    "linebreak-style": 0,
-    "@typescript-eslint/no-throw-literal": 0,
-    "max-len": ["error", { "code": 125 }],
-    "consistent-return": 0,
-    "@typescript-eslint/no-this-alias": 0,
-    "no-restricted-syntax": 0,
-    "no-await-in-loop": 0,
-    "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0,
-    "@typescript-eslint/member-delimiter-style": [
-      "error",
-      {
-        "multiline": {
-          "delimiter": "semi",
-          "requireLast": true
-        },
-        "singleline": {
-          "delimiter": "semi",
-          "requireLast": false
-        }
-      }
-    ],
-    "object-curly-newline": 0
+    "prettier/prettier": "error"
   }
 }

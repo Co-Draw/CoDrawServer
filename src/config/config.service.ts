@@ -10,6 +10,9 @@ dotenv.config({
 const configService = {
   env,
   port: process.env.SERVER_PORT || 8080,
+  cors: {
+    allowedOrigins: process.env.ALLOWED_ORIGINS.split(","),
+  },
 };
 
 export default configService;
