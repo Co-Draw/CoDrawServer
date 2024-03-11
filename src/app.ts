@@ -20,6 +20,10 @@ io.on("connection", (socket) => {
   console.log(`connected: ${socket.id}`);
   connectedClients.set(socket.id, socket);
 
+  socket.on("color", (data) => {
+    socket.broadcast.emit("onColor", data);
+  });
+
   socket.on("draw", (data) => {
     socket.broadcast.emit("onDraw", data);
   });
