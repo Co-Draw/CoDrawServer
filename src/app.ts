@@ -16,7 +16,7 @@ const io = new Server(server, {
 });
 
 const connectedClients = new Map<string, Socket>();
-const events: Event[] = [];
+let events: Event[] = [];
 
 io.on("connection", (socket) => {
   if (!connectedClients.has(socket.id)) {
@@ -42,6 +42,11 @@ io.on("connection", (socket) => {
   socket.on("ellipse", (data) => {
     events.push({ name: "onEllipse", data });
     socket.broadcast.emit("onEllipse", data);
+  });
+
+  socket.on("clear", (data) => {
+    events = [];
+    socket.broadcast.emit("onClear", data);
   });
 
   socket.on("disconnect", () => {
