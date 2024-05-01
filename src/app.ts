@@ -30,11 +30,18 @@ io.on("connection", (socket) => {
   });
 
   socket.on("rectangle", (data) => {
+    events.push({ name: "onRectangle", data });
     socket.broadcast.emit("onRectangle", data);
   });
 
   socket.on("circle", (data) => {
+    events.push({ name: "onCircle", data });
     socket.broadcast.emit("onCircle", data);
+  });
+
+  socket.on("ellipse", (data) => {
+    events.push({ name: "onEllipse", data });
+    socket.broadcast.emit("onEllipse", data);
   });
 
   socket.on("disconnect", () => {

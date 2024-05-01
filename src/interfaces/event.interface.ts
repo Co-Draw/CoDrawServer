@@ -1,4 +1,4 @@
-type evenType = "onDraw" | "onEraser" | "onRectangle";
+type evenType = "onDraw" | "onRectangle" | "onCircle" | "onEllipse";
 
 export default interface Event {
   name: evenType;
