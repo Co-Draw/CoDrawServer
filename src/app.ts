@@ -21,9 +21,7 @@ const events: Event[] = [];
 io.on("connection", (socket) => {
   if (!connectedClients.has(socket.id)) {
     connectedClients.set(socket.id, socket);
-    events.forEach((e) => {
-      socket.emit(e.name, e.data);
-    });
+    events.forEach((e) => socket.emit(e.name, e.data));
   }
 
   socket.on("draw", (data) => {
@@ -45,5 +43,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(port, () => {
-  console.log(listening on port ${port});
+  console.log(`listening on port ${port}`);
 });
