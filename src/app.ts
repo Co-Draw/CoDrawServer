@@ -29,17 +29,21 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("onDraw", data);
   });
 
-  socket.on("eraser", (data) => {
-    socket.broadcast.emit("onEraser", data);
-  });
-
   socket.on("rectangle", (data) => {
     socket.broadcast.emit("onRectangle", data);
+  });
+
+  socket.on("circle", (data) => {
+    socket.broadcast.emit("onCircle", data);
   });
 
   socket.on("disconnect", () => {
     connectedClients.delete(socket.id);
   });
+});
+
+app.get("/", (req, res) => {
+  res.send("Ok");
 });
 
 server.listen(port, () => {
