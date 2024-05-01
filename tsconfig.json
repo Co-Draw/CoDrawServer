@@ -15,7 +15,9 @@
     "paths": {
       "*": ["node_modules/", "src/types/*"]
     },
-    "typeRoots": ["node_modules/@types", "src/types"],
+    "typeRoots": ["node_modules/@types",
+      "src/interfaces"
+    ],
     "outDir": "./dist",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
